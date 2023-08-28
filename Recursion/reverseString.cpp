@@ -1,13 +1,25 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-string reverseString(string str){
-    
+void reverseString(string &str, int i, int j)
+{
+    if (i > j)
+        return;
+
+    swap(str[i], str[j]);
+    i++;
+    j--;
+
+    return reverseString(str, i, j);
 }
 
-int main(){
+int main()
+{
 
     string str = "abcde";
-    reverseString(str);
+    int i = 0;
+    int j = str.length() - 1;
+    reverseString(str, i, j);
+    cout << str;
 }
